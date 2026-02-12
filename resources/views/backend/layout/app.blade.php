@@ -5,18 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-    <meta name="subject" content="Website Layanan Pengaduan SMK Negeri 2 Karanganyar">
+    <meta name="subject" content="Website Layanan Pengaduan SMKN 1 Bondowoso">
     <meta name="google-site-verification" content="eA5vWNqCfogT0bO_jGCuJrUwkt1bzfvbYUGlRguZWY" />
     <meta name="language" content="Indonesia">
     <meta name="robots" content="index,follow" />
     <meta name="Classification" content="Layanan">
-    <meta name="author" content="Muhamad Zainal Arifin,Hendra Agil S,Niko Febriyanto">
-    <meta name="developer" content="Muhamad Zainal arifin, Hendra Agil S, Niko Febriayanto">
-    <meta name="owner" content="SMK Negeri 2 Karanganyar">
+    <meta name="author" content="Rafikhul, Angel, Dika">
+    <meta name="developer" content="Rafikhul, Angel, Dika">
+    <meta name="owner" content="SMKN 1 Bondowoso">
     <meta name="webcrawlers" content="all" />
     <meta name="rating" content="general" />
     <meta name="spiders" content="all" />
-    <meta name='copyright' content='SMK Negeri 2 Karanganyar | XIIRA'>
+    <meta name='copyright' content='SMKN 1 Bondowoso | XIRPL2'>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('backend/css/bootstrap.css') }}">

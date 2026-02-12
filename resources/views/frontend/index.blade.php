@@ -1,6 +1,6 @@
 @extends('frontend.layout.app')
 
-@section('title', 'Pengaduan Sekolah | SMKN 2 Karanganyar')
+@section('title', 'Pengaduan Sekolah | SMKN 1 Bondowoso')
 
 @section('content')
    <!-- hero section -->
@@ -11,7 +11,7 @@
           <div class="w-full lg:max-w-md">
             <h2
               class="mb-4 text-2xl  font-bold leading-tight tracking-tight   lg:text-left md:text-center font-heading">
-              Selamat Datang di Sistem Layanan Pengaduan & Aspirasi SMKN 2 Karanganyar</h2>
+              Selamat Datang di Sistem Layanan Pengaduan & Aspirasi SMKN 1 Bondowoso</h2>
               <p class="mb-4 font-medium tracking-tight text-gray-400 lg:text-left md:text-center  xl:mb-6">Laporkan
                 kepada kami jika ada
                 Pengaduan atau pun Aspirasi yang dapat menjadi langkah awal untuk kita menjadi lebih baik lagi.</p>
@@ -48,12 +48,12 @@
         Selayang Pandang</p>
       <h4
         class="mt-1 text-md font-bold text-left text-gray-800 sm:mx-6 sm:text-3xl md:text-md lg:text-mdl sm:text-center sm:mx-0">
-        Sekilas Mengenai Aplikasi Pengaduan SMKN 2 Karanganyar</h4>
+        Sekilas Mengenai Aplikasi Pengaduan SMKN 1 Bondowoso</h4>
 
       <div
         class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
         <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Untuk Apa sistem ini di buat?</h3>
-        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">ini dibuat untuk menampung pengaduan & aspirasi dari semua warga SMKN 2 Karanganyar. Diharapkan dengan sistem ini semua warga sekolah dapat lebih mudah untuk melaporkan pengaduan & aspirasi untuk sekolah.
+        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">ini dibuat untuk menampung pengaduan & aspirasi dari semua warga SMKN 1 Bondowoso. Diharapkan dengan sistem ini semua warga sekolah dapat lebih mudah untuk melaporkan pengaduan & aspirasi untuk sekolah.
         </p>
       </div>
     </div>
@@ -183,9 +183,9 @@
 
       <div
         class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
-        <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Apakah Aplikasi Pengaduan SMKN 2
-          Karanganyar ini ?</h3>
-        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">Seperti yang sudah dijelaskan diatas tadi, aplikasi ini dibuat untuk menampung pengaduan & aspirasi dari semua warga SMKN2 Karanganyar.</p>
+        <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Apakah Aplikasi Pengaduan SMKN 1
+          Bondowoso ini ?</h3>
+        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">Seperti yang sudah dijelaskan diatas tadi, aplikasi ini dibuat untuk menampung pengaduan & aspirasi dari semua warga SMKN 1 Bondowoso.</p>
       </div>
       <div
         class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">

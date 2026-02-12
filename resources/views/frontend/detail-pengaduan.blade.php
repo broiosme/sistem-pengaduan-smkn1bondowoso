@@ -1,5 +1,5 @@
 @extends('frontend.layout.app')
-@section('title', 'Detail Pengaduan | SMKN 2 Karanganyar')
+@section('title', 'Detail Pengaduan | SMKN 1 Bondowoso')
 @section('content')
 <!---form -->
 <section class="w-full px-8 py-20 bg-gray-100 xl:px-8">
