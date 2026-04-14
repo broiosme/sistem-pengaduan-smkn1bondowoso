@@ -760,7 +760,7 @@
                                                 style="Margin-top: 0;Margin-bottom: 0;font-style: normal;font-weight: normal;color: #ec8b4b;font-size: 20px;line-height: 28px;font-family: crete round,pt serif,constantia,georgia,serif;text-align: center;"
                                                 lang="x-size-24"><span class="font-crete-round"><strong>Terimakasih
                                                         Sudah berpartisipasi untuk
-                                                        membangun dan membuat SMKN 2 Karanganyar Lebih baik
+                                                        membangun dan membuat SMKN 1 Bondowoso Lebih baik
                                                         lagi</strong></span></h1>
                                             <p style="Margin-top: 20px;Margin-bottom: 0;">&nbsp;</p>
                                             <p style="Margin-top: 20px;Margin-bottom: 0;">Penganduan</p>
@@ -784,7 +784,7 @@
                                             <p style="Margin-top: 20px;Margin-bottom: 0;">Hormat kami</p>
                                             <p style="Margin-top: 20px;Margin-bottom: 0;">&nbsp;</p>
                                             <p style="Margin-top: 20px;Margin-bottom: 0;">Petugas Layanan Pengaduan</p>
-                                            <p style="Margin-top: 20px;Margin-bottom: 20px;">SMKN 2 Karanganyar</p>
+                                            <p style="Margin-top: 20px;Margin-bottom: 20px;">SMKN 1 Bondowoso</p>
                                         </div>
                                     </div>
 
@@ -831,7 +831,7 @@
                                             </tbody>
                                         </table>
                                         <div style="font-size: 12px;line-height: 19px;Margin-top: 20px;">
-                                            <div>XIIRA-IT-DEV-SMKN2Karanganyar</div>
+                                            <div>XI-RPL-SMKN1Bondowoso</div>
                                         </div>
                                         <div style="font-size: 12px;line-height: 19px;Margin-top: 18px;">
                                         </div>

@@ -25,8 +25,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 /*
     API using JWT for Authorization
 */
-// Login 
+// Auth endpoints (public)
 Route::group(['prefix' => '/v1'], function () {
+    Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
     Route::post('/refresh',  [AuthController::class, 'refresh']);
 

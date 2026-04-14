@@ -61,6 +61,12 @@
                             <button
                                 class="w-full px-3 py-4 font-medium font-semibold font-medium text-white bg-blue-600 rounded-lg">Login</button>
                         </div>
+
+                        <div class="text-center mt-4">
+                            <p class="text-sm text-gray-600">Belum punya akun? 
+                                <a href="{{ route('register') }}" class="text-blue-600 font-semibold hover:underline">Daftar di sini</a>
+                            </p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -94,7 +100,7 @@
                         <a href=""><img src="{{ asset('backend/images/logo/logo.png') }}" alt="Logo"></a>
                     </div>
                     <h1 class="auth-title">Log in.</h1>
-                    <p class="auth-subtitle mb-5">Selamat Datang di Sistem Pengaduan Sekolah <strong>SMKN 2 Karanganyar</strong></p>
+                    <p class="auth-subtitle mb-5">Selamat Datang di Sistem Pengaduan Sekolah <strong>SMKN 1 Bondowoso</strong></p>
 
                     @if (session('status'))
                         <span class="text-danger text-center">{{ session('status') }}</span>

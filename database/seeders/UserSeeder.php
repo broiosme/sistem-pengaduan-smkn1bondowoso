@@ -39,11 +39,11 @@ class UserSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Zainal',
-            'email' => 'Zainalarifin080718@gmail.com',
-            'password' => bcrypt('zaindev'),
+            'name' => 'Rafikhul',
+            'email' => 'Rafikhul@gmail.com',
+            'password' => bcrypt('Rafikhul123'),
             'role' => 'user',
-            'nomor_induk' => 002211212
+            'nomor_induk' => 002211256
         ]);
     }
 }

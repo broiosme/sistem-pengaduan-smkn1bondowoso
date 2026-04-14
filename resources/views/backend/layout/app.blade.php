@@ -44,7 +44,7 @@
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p><?= date('Y') ?> &copy; Pengaduan Sekolah | SMKN 2 Karanganyar</p>
+                        <p><?= date('Y') ?> &copy; Pengaduan Sekolah | SMKN 1 Bondowoso</p>
                     </div>
                     <div class="float-end">
                         <p>Dashboard Theme<span class="text-danger"></span> by <a

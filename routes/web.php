@@ -24,6 +24,8 @@ use App\Http\Controllers\SiteController;
 */
 
 Route::get('/', [SiteController::Class, 'index']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/register', [AuthController::class, 'storeRegister'])->name('store.register');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'prosesLogin'])->name('proses.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('proses.logout');
