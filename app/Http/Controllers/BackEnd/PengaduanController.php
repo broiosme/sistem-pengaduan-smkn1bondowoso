@@ -26,9 +26,16 @@ class PengaduanController extends Controller
     public function detail($id)
     {
         $_dec = Crypt::decrypt($id);
+        $pengaduan = Pengaduan::findOrfail($_dec);
+        
+        // Authorization Check: User hanya bisa lihat laporan mereka sendiri
+        if (Auth::user()->role === 'user' && $pengaduan->nomor_induk !== Auth::user()->nomor_induk) {
+            abort(403, 'Anda tidak memiliki akses untuk mengakses halaman ini.');
+        }
+        
         $data = [
             'title' => 'Detail Pengaduan',
-            'laporan' => Pengaduan::findOrfail($_dec),
+            'laporan' => $pengaduan,
         ];
         return view('backend.pages.pengaduan.detail', $data);
     }
@@ -44,9 +51,16 @@ class PengaduanController extends Controller
     public function tanggapan($id)
     {
         $_dec = Crypt::decrypt($id);
+        $pengaduan = Pengaduan::findOrfail($_dec);
+        
+        // Authorization Check: Only admin/petugas can respond
+        if (!in_array(Auth::user()->role, ['admin', 'petugas'])) {
+            abort(403, 'Anda tidak memiliki akses untuk mengakses halaman ini.');
+        }
+        
         $data = [
             'title' => 'Tanggapan',
-            'pengaduan' => Pengaduan::findOrfail($_dec),
+            'pengaduan' => $pengaduan,
         ];
         return view('backend.pages.tanggapan', $data);
     }

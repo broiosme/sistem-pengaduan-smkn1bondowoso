@@ -68,17 +68,24 @@ class DataUserController extends Controller
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required',
             'role' => 'required',
-            'password' => 'required'
+            'password' => 'nullable|min:8' // Optional password
         ]);
-        User::where(['id' => $id])->update([
+        
+        $data = [
             'name' => $req->name,
             'email' => $req->email,
             'role' => $req->role,
-            'password' => bcrypt($req->password),
             'nomor_induk' => $req->nomor_induk,
             'tempat_lahir' => $req->tempat_lahir,
             'tanggal_lahir' => $req->tanggal_lahir,
-        ]);
+        ];
+        
+        // Only hash password if provided
+        if ($req->filled('password')) {
+            $data['password'] = bcrypt($req->password);
+        }
+        
+        User::where(['id' => $id])->update($data);
         return redirect(route('data.users'))->with('status', 'Data User Berhasil Diubah');
     }
     
