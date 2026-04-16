@@ -35,11 +35,11 @@
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="status" id="inlineRadio1" value="sukses">
-                        <label class="form-check-label text-success" for="inlineRadio1">Terima</label>
+                        <label class="form-check-label text-success" for="inlineRadio1">Diterima</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="status" id="inlineRadio2" value="ditolak">
-                        <label class="form-check-label text-danger" for="inlineRadio2">Tolak</label>
+                        <label class="form-check-label text-danger" for="inlineRadio2">Ditolak</label>
                     </div>
                     @error('status')
                         <div class="text-danger">

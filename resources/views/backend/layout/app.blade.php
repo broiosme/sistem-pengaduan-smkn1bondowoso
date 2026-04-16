@@ -47,8 +47,7 @@
                         <p><?= date('Y') ?> &copy; Pengaduan Sekolah | SMKN 1 Bondowoso</p>
                     </div>
                     <div class="float-end">
-                        <p>Dashboard Theme<span class="text-danger"></span> by <a
-                                href="http://ahmadsaugi.com">A. Saugi</a></p>
+                        <p>Dashboard Theme by <a href="http://ahmadsaugi.com">kelompok 4</a></p>
                     </div>
                 </div>
             </footer>

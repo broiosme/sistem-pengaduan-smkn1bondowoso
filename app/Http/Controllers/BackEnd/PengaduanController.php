@@ -68,8 +68,14 @@ class PengaduanController extends Controller
             'user_id' => Auth::User()->id,
             'tanggapan' => $req->tanggapan
         ]);
-        // send mail to user
-        Mail::to($pengaduan)->send(new ConfirmMail($pengaduan));
+        
+        // Send mail to user with error handling
+        try {
+            Mail::to($pengaduan->email)->send(new ConfirmMail($pengaduan));
+        } catch (\Exception $e) {
+            \Log::warning('Email pengaduan gagal dikirim ke ' . $pengaduan->email . ': ' . $e->getMessage());
+        }
+        
         return redirect(route('pengaduan'))->with('status', 'Data Pengaduan Berhasil Ditanggapi');
     }
 

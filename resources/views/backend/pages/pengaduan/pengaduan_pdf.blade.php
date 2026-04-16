@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Laporan PDF Pengaduan SMKN 2 KARANGANYAR</title>
+	<title>Laporan PDF Pengaduan SMKN 1 BONDOWOSO</title>
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -12,7 +12,7 @@
 		}
 	</style>
 	<center>
-		<h5>Laporan PDF Pengaduan SMKN 2 KARANGANYAR</h4>
+		<h5>Laporan PDF Pengaduan SMKN 1 BONDOWOSO</h4>
 	</center>
 
 	<table class='table table-bordered'>
