@@ -36,26 +36,37 @@
                         @if ($groupItem->pengaduan->status === 'pending')
                         <div
                             class="bg-yellow-500 font-semibold text-center mt-4 text-white p-2 rounded  leading-none flex items-center">
-                            Pending</span>
-                        </div>
+                            Pending</div>
                         @elseif($groupItem->pengaduan->status === 'ditolak')
                         <div
                             class="bg-red-600  font-semibold  text-center mt-4 text-white p-2 rounded  leading-none flex items-center">
-                            Di tolak</span>
-                        </div>
+                            Ditolak</div>
                         @else
                         <div
                             class="bg-green-600 font-semibold text-center mt-4 text-white p-2 rounded  leading-none flex items-center">
-                            Di konfirmasi </span>
-                        </div>
+                            Diterima</div>
                         @endif
-                        <hr class="bg-gray-400 my-4 rounded-md py-1 px-1">
-                        <h3 class="text-xl font-semibold  text-cyan-500 sm:text-md md:text-md">Tanggapan
-                        </h3>
-                        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">{{$groupItem->tanggapan}}</p>
-                        <div class="block">
+                        <hr class="bg-gray-400 my-6 rounded-md">
+                        
+                        <!-- Feedback Section -->
+                        <div class="mt-6">
+                            <h3 class="text-lg font-semibold text-gray-700 mb-3">Umpan Balik dari Petugas:</h3>
+                            @if ($groupItem && $groupItem->tanggapan)
+                            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
+                                <p>{{$groupItem->tanggapan}}</p>
+                                <p class="text-xs text-gray-600 mt-2">{{ optional($groupItem)->created_at->format('d/m/Y H:i') }}</p>
+                            </div>
+                            @else
+                            <p class="text-yellow-600">Belum ada umpan balik dari petugas</p>
+                            @endif
+                        </div>
+
+                        <div class="flex gap-3 mt-6">
                             <a href="{{url('site/cek-pengaduan')}}"
-                                class="inline-flex items-center w-full px-6 py-3 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-transparent bg-indigo-600 border border-transparent md:px-3 md:w-auto md:rounded-md mt-5 lg:px-5 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">kembali</a>
+                                class="inline-flex items-center px-6 py-3 text-sm font-medium leading-4 text-white transition duration-150 ease-in-out bg-indigo-600 border border-transparent rounded-md hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.707 9.293a1 1 0 010 1.414L5.414 13H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 11-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                Kembali
+                            </a>
                         </div>
                     </div>
                     <!-- card report -->

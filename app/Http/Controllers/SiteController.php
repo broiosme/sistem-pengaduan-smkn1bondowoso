@@ -166,8 +166,16 @@ class SiteController extends Controller
     public function handleDetail($id = false)
     {
         $dec = \Crypt::Decrypt($id);
+        $groupItem = Tanggapan::with(['user', 'pengaduan'])->where('pengaduan_id', $dec)->first();
+        
+        // If no tanggapan exists, fetch pengaduan directly and create fallback object
+        if (!$groupItem) {
+            $pengaduan = Pengaduan::findOrfail($dec);
+            $groupItem = (object)['pengaduan' => $pengaduan, 'tanggapan' => null, 'user' => null];
+        }
+        
         return view('frontend.detail-pengaduan', [
-            'groupItem' => Tanggapan::with(['user', 'pengaduan'])->where('pengaduan_id', $dec)->first()
+            'groupItem' => $groupItem
         ]);
     }
 
@@ -195,5 +203,61 @@ class SiteController extends Controller
             'activity' => Auth::user()->name . ' menghapus pengaduan/aspirasi',
         ]);
         return redirect()->route('pengaduan.check')->with('status', 'Data pengaduan berhasil dihapus');
+    }
+
+    public function history()
+    {
+        $pengaduan = Pengaduan::where('nomor_induk', Auth::user()->nomor_induk)
+                              ->orderBy('created_at', 'desc')
+                              ->paginate(10);
+        
+        return view('frontend.history-pengaduan', [
+            'pengaduan' => $pengaduan,
+            'stats' => [
+                'total' => Pengaduan::where('nomor_induk', Auth::user()->nomor_induk)->count(),
+                'pending' => Pengaduan::where('nomor_induk', Auth::user()->nomor_induk)->where('status', 'pending')->count(),
+                'sukses' => Pengaduan::where('nomor_induk', Auth::user()->nomor_induk)->where('status', 'sukses')->count(),
+                'ditolak' => Pengaduan::where('nomor_induk', Auth::user()->nomor_induk)->where('status', 'ditolak')->count(),
+            ]
+        ]);
+    }
+
+    public function progress($id)
+    {
+        $dec = \Crypt::Decrypt($id);
+        $pengaduan = Pengaduan::findOrfail($dec);
+        
+        $tanggapan = Tanggapan::with('user')->where('pengaduan_id', $dec)->first();
+        
+        return view('frontend.progress-pengaduan', [
+            'pengaduan' => $pengaduan,
+            'tanggapan' => $tanggapan,
+            'timeline' => [
+                [
+                    'status' => 'Pengaduan Dikirim',
+                    'date' => $pengaduan->created_at,
+                    'description' => 'Aspirasi/pengaduan Anda telah diterima sistem',
+                    'completed' => true
+                ],
+                [
+                    'status' => 'Menunggu Verifikasi',
+                    'date' => $pengaduan->created_at,
+                    'description' => 'Petugas sedang memverifikasi pengaduan Anda',
+                    'completed' => $pengaduan->status !== 'pending'
+                ],
+                [
+                    'status' => 'Diproses',
+                    'date' => $tanggapan ? $tanggapan->created_at : null,
+                    'description' => 'Pengaduan sedang diproses oleh pihak sekolah',
+                    'completed' => $tanggapan && ($pengaduan->status === 'sukses' || $pengaduan->status === 'ditolak')
+                ],
+                [
+                    'status' => in_array($pengaduan->status, ['sukses', 'ditolak']) ? 'Selesai' : 'Menunggu',
+                    'date' => $tanggapan ? $tanggapan->created_at : null,
+                    'description' => $pengaduan->status === 'sukses' ? 'Pengaduan Anda telah diterima dan ditanggapi' : 'Proses penyelesaian',
+                    'completed' => $pengaduan->status !== 'pending'
+                ]
+            ]
+        ]);
     }
 }

@@ -28,7 +28,7 @@ class ConfirmMail extends Mailable
      */
     public function build()
     {
-        return $this->from('pengaduan.smkn2kra@gmail.com')
+        return $this->from('pengaduan.smkn1bondowoso@gmail.com')
                     ->subject('Informasi Terbaru terkait Aspirasi/Pengaduan Anda')
                     ->view('mail.MailConfirm');
     }

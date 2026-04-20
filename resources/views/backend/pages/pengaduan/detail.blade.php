@@ -94,23 +94,40 @@
                     </table>
                 </div>
                 <div class="mt-4">
-                    <h4>Status</h4>
-                    @if ($laporan->status === 'sukses')
-                        <button class="btn btn-outline-success">Laporan Diterima</button>
-                        <div class="mt-4">
-                            Tanggapan : 
-                            <p>{{ $laporan->tanggapan->tanggapan }}</p>{{ $laporan->tanggapan->user->name }}
-                        </div>
-                    @elseif($laporan->status === 'ditolak')
-                        <button class="btn btn-outline-danger">Laporan Ditolak</button>
-                        <div class="mt-4">
-                            Tanggapan : 
-                            <p>{{ $laporan->tanggapan->tanggapan }}</p>{{ $laporan->tanggapan->user->name }}
+                    <h4>Status & Tanggapan</h4>
+                    <div class="alert {{ $laporan->status === 'sukses' ? 'alert-success' : ($laporan->status === 'ditolak' ? 'alert-danger' : 'alert-warning') }}">
+                        <strong>Status:</strong> 
+                        @if ($laporan->status === 'sukses')
+                            Laporan Diterima
+                        @elseif($laporan->status === 'ditolak')
+                            Laporan Ditolak
+                        @else
+                            Menunggu Tanggapan
+                        @endif
+                    </div>
+                    
+                    @if ($laporan->tanggapan)
+                        <div class="card mt-3 border-left-primary">
+                            <div class="card-header bg-light">
+                                <h5 class="mb-0"><i class="fas fa-reply"></i> Tanggapan dari: <strong>{{ $laporan->tanggapan->user->name }}</strong></h5>
+                                <small class="text-muted">{{ $laporan->tanggapan->created_at->format('d/m/Y H:i') }}</small>
+                            </div>
+                            <div class="card-body">
+                                <p>{{ $laporan->tanggapan->tanggapan }}</p>
+                            </div>
                         </div>
                     @else
-                        <a href="{{ route('tanggapan',  Crypt::Encrypt($laporan->id)) }}" class="btn btn-primary">Tanggapi</a>
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> Belum ada tanggapan. <a href="{{ route('tanggapan',  Crypt::Encrypt($laporan->id)) }}" class="btn btn-sm btn-primary mt-2">Berikan Tanggapan</a>
+                        </div>
                     @endif
                 </div>
+                
+                @if ($laporan->status === 'pending')
+                <div class="mt-4">
+                    <a href="{{ route('tanggapan',  Crypt::Encrypt($laporan->id)) }}" class="btn btn-primary"><i class="fas fa-reply"></i> Berikan Tanggapan</a>
+                </div>
+                @endif
             </div>
         </div>
 

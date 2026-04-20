@@ -29,10 +29,6 @@ Route::post('/register', [AuthController::class, 'storeRegister'])->name('store.
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'prosesLogin'])->name('proses.login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('proses.logout');
-Route::group(['prefix' => 'site'], function () {
-    Route::post('/cari-pengaduan', [SiteController::Class, 'handleSearch'])->name('pengaduan.search');
-    Route::get('/cek-pengaduan', [SiteController::Class, 'handleCheck'])->name('pengaduan.check');
-});
 
 Route::group(['middleware' => ['auth', 'rolecheck:admin,petugas']], function () {
     Route::group(['prefix' => '/panel'], function () {
@@ -79,7 +75,12 @@ Route::group(['middleware' => ['auth', 'rolecheck:user']], function () {
         Route::get('/pengaduan/{id}/edit', [SiteController::Class, 'edit'])->name('pengaduan.edit');
         Route::put('/pengaduan/{id}/update', [SiteController::Class, 'update'])->name('pengaduan.update');
         Route::delete('/pengaduan/{id}/delete', [SiteController::Class, 'destroy'])->name('pengaduan.delete');
-        // ceck pengaduan
-        Route::get('{id}/pengaduan', [SiteController::Class, 'handleDetail'])->name('detail.pengaduan');
+        // cek pengaduan
+        Route::post('/cari-pengaduan', [SiteController::Class, 'handleSearch'])->name('pengaduan.search');
+        Route::get('/cek-pengaduan', [SiteController::Class, 'handleCheck'])->name('pengaduan.check');
+        Route::get('/pengaduan/{id}', [SiteController::Class, 'handleDetail'])->name('detail.pengaduan');
+        // history pengaduan
+        Route::get('/history', [SiteController::Class, 'history'])->name('pengaduan.history');
+        Route::get('/progress/{id}', [SiteController::Class, 'progress'])->name('pengaduan.progress');
     });
 });

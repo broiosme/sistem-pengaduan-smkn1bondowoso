@@ -215,7 +215,7 @@
       <div
         class="w-full px-6 py-6 mx-auto mt-10 bg-white border border-gray-200 rounded-lg sm:px-8 md:px-12 sm:py-8 sm:shadow lg:w-5/6 xl:w-2/3">
         <h3 class="text-lg font-bold text-purple-500 sm:text-xl md:text-2xl">Bagaimana jika saya belum paham tentang sistem ini dan ingin bertanya lebih lanjut ?</h3>
-        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">Kamu bisa kirim pertanyaan ke email kami : rpla.smkn2kra@gmail.com</p>
+        <p class="mt-2 text-base text-gray-600 sm:text-lg md:text-normal">Kamu bisa kirim pertanyaan ke email kami : pengaduan.smkn1bondowoso@gmail.com</p>
       </div>
     </div>
   </section>

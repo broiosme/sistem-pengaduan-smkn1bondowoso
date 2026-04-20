@@ -14,11 +14,53 @@ use Barryvdh\DomPDF\Facade as PDF;
 
 class PengaduanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $query = Pengaduan::query();
+        
+        // Filter by jenis pengaduan (kategori)
+        if ($request->filled('jenis_pengaduan')) {
+            $query->where('jenis_pengaduan', $request->jenis_pengaduan);
+        }
+        
+        // Filter by nomor induk (student)
+        if ($request->filled('nomor_induk')) {
+            $query->where('nomor_induk', 'like', '%' . $request->nomor_induk . '%');
+        }
+        
+        // Filter by date
+        if ($request->filled('tanggal_dari')) {
+            $query->whereDate('tanggal_laporan', '>=', $request->tanggal_dari);
+        }
+        
+        if ($request->filled('tanggal_sampai')) {
+            $query->whereDate('tanggal_laporan', '<=', $request->tanggal_sampai);
+        }
+        
+        // Filter by month and year
+        if ($request->filled('bulan') && $request->filled('tahun')) {
+            $query->whereYear('tanggal_laporan', $request->tahun)
+                  ->whereMonth('tanggal_laporan', $request->bulan);
+        }
+        
+        // Filter by status
+        if ($request->filled('status')) {
+            $query->where('status', $request->status);
+        }
+        
+        $pengaduan = $query->latest()->get();
+        
         $data = [
             'title' => 'Pengaduan',
-            'pengaduan' => Pengaduan::latest()->get(),
+            'pengaduan' => $pengaduan,
+            'jenis_list' => ['pengaduan', 'aspirasi'],
+            'status_list' => ['pending', 'sukses', 'ditolak'],
+            'bulan_list' => [
+                '01' => 'Januari', '02' => 'Februari', '03' => 'Maret',
+                '04' => 'April', '05' => 'Mei', '06' => 'Juni',
+                '07' => 'Juli', '08' => 'Agustus', '09' => 'September',
+                '10' => 'Oktober', '11' => 'November', '12' => 'Desember'
+            ]
         ];
         return view('backend.pages.pengaduan.index', $data);
     }
